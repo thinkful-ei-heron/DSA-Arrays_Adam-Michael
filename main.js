@@ -151,8 +151,17 @@ function products(arr = [1, 2, 3]) {
   }
   return results;
 }
+function linearProducts(arr = [1, 2, 3]) {
+  let results = [];
+  let product = arr.reduce((acc, cur) => acc * cur); //O(n);
+  for (let i = 0; i < arr.length; i++) {
+    //O(n)
+    results[i] = product / arr[i];
+  }
+  return results;
+}
 
-// console.log(products([1, 3, 9, 4]));
+console.log(linearProducts([1, 3, 9, 4]));
 
 //O(m*n) (or O(n^2) for square array)
 function arrayShenanigans(arr) {
@@ -211,5 +220,5 @@ function rotationChecker(str1, str2) {
   }
   return rotations.has(str2); //O(1) check
 }
-console.log(rotationChecker('amazon', 'azonma'));
-console.log(rotationChecker('amazon', 'azonam'));
+// console.log(rotationChecker('amazon', 'azonma'));
+// console.log(rotationChecker('amazon', 'azonam'));
